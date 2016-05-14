@@ -38,7 +38,7 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang" OR ${CMAKE_CXX_COMPILER_ID} STREQU
   # General options to pass to the C++ compiler
   set(GENERAL_CXX_OPTIONS)
   list(APPEND GENERAL_CXX_OPTIONS
-    "std=gnu++11"
+    "std=gnu++14"
     "fno-omit-frame-pointer"
     "fno-operator-names"
     "Wall"
@@ -133,7 +133,7 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang" OR ${CMAKE_CXX_COMPILER_ID} STREQU
       list(APPEND GENERAL_OPTIONS "fno-delete-null-pointer-checks")
     endif()
 
-    if(GCC_VERSION VERSION_GREATER 5.0 OR GCC_VERSION VERSION_EQUAL 5.0)
+    if(GCC_VERSION VERSION_LESS 5.0 OR GCC_VERSION VERSION_EQUAL 5.0)
       message(WARNING "HHVM is primarily tested on GCC 4.8 and GCC 4.9. Using other versions may produce unexpected results, or may not even build at all.")
     endif()
 
